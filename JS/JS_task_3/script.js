@@ -100,7 +100,14 @@ appData.moneyPerDay = appData.budget / 30;
 alert('Ежедневный бюджет: ' + appData.moneyPerDay);
 
 
+function test(test, callback) {
+  console.log('Это тест ' + test)
+  callback();
+}
 
+test('1', function() {
+  console.log('Вызов колбека');
+})
 
 
 
