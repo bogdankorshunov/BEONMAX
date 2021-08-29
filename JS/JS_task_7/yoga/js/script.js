@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let infoHeader = document.querySelector('.info-header');
   let infoHeaderTab = document.querySelectorAll('.info-header-tab');
   let infoTabContent = document.querySelectorAll('.info-tabcontent');
-
   function hideTabContent(item) {
     for (let i = item; i < infoTabContent.length; i++) {
       infoTabContent[i].classList.remove('show');
