@@ -110,20 +110,4 @@ document.addEventListener('DOMContentLoaded', function () {
     item.classList.remove('more-splash');
     document.body.style.overflow = 'visible';
   }
-  // Задание 
-	// <input id="age" value="30">
-
-  // let age = document.getElementById('age');
-  // function showUser(surname, name) {
-  //   alert(
-  //     'Пользователь ' + surname + ' ' + name + ', его возраст ' + this.value
-  //   );
-  // }
-
-  // 1 способ
-  // showUser.apply(age, ['Петя', 'Иванов']);
-  // 2 способ
-  // showUser.call(age, 'Петя', 'Иванов');
-  // 3 способ
-  // showUser.bind(age, 'Петя', 'Иванов')();
 });
