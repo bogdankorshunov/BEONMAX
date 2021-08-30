@@ -1,36 +1,52 @@
-document.addEventListener('DOMContentLoaded', function (event) {
-  let wrapper = document.querySelector('.wrapper');
-  let box = document.querySelector('.box');
-  let startBtn = document.querySelector('.start');
-  let buttons = document.querySelector('.buttons');
 
-  // let timerId = setTimeout(function log() {
-  //     console.log("hello")
-  //     setTimeout(log, 2000)
-  // });
-  function myAnimation() {
-    console.log(2);
-    let pos = 0;
-    let id = setInterval(frame, 1);
-    let boxWidth = box.offsetWidth;
-    let wrapperWidth = wrapper.offsetWidth;
-    console.log(wrapperWidth, boxWidth);
-    function frame() {
-      if (pos == wrapperWidth - boxWidth - 2) {
-        clearInterval();
-      } else {
-        pos++;
-        box.style.top = pos + 'px';
-        box.style.left = pos + 'px';
-      }
-    }
+function func2(...arr) {
+  let sum = 0;
+  for (let iterator of arr) {
+    console.log(sum, iterator)
+    sum += iterator;
   }
-  startBtn.addEventListener('click', myAnimation);
-  buttons.addEventListener('click', function (e) {
-    if (e.target && e.target.matches('button.first')) {
-      console.log(1);
-    } else if (e.target && e.target.matches('button.second')) {
-      console.log(2);
-    }
-  });
+  this.textContent = sum;
+}
+
+function func1() {
+  this.textContent = 'hui'
+}
+
+function func3(...args){
+  console.log(args)
+  // this.innerHTML = a + b + c
+}
+
+// document.querySelector('.b-1').addEventListener('click', () => {
+//   func2.apply(document.querySelector('.b-2'), [2, 3, 5]);
+// });
+
+let a1 = func1.bind(document.querySelector('.b-1'))
+a1()
+
+// document.querySelector('.b-1').addEventListener('click', () => {
+//   func1.call(document.querySelector('.b-2'), 2, 3);
+// });
+
+let sum = func3.bind(document.querySelector('.b-3'), 10);
+
+document.querySelector('.b-3').addEventListener('click', ()=>{
+  sum(1,2,3)
 });
+
+let validate = {
+  password: "12345",
+  email: "123213@dsfsdf.ru",
+  check() {
+    return(this.password.length > 5) ? true : false
+  }
+}
+
+console.log(validate.check())
+let validate2 = {
+  password: '123456',
+  email: "123213@dsfsdf.ru",
+}
+
+let checkValidBind = validate.check.bind(validate2)
+console.log(checkValidBind())
