@@ -1,31 +1,15 @@
-let prom = new Promise((resolve, reject) => {
-  console.log('timer 2000 started')
-  setTimeout(()=>{
-    let t = 2
-    console.log('timer ended')
-    if(t == 2) {
-
-      resolve({timer: 'ok'})
-    } else {
-      reject({timer: 'ne ok'})
-    }
-  }, 2000)
-})
-let prom2 = new Promise((resolve, reject) => {
-  console.log('timer 3000 started')
-  setTimeout(()=>{
-    let t = 3
-    console.log('timer ended')
-    if(t == 2) {
-
-      resolve({timer: 'ok'})
-    } else {
-      reject({timer: 'ne ok'})
-    }
-  }, 3000)
-})
-// prom.then(data => console.log(data.timer)).catch(data => console.log(data.timer))
-
-Promise.all([prom, prom2]).then(()=>{
-  console.log('ok')
-})
+let json = '{"id": 2}'
+try {
+  let user = JSON.parse(json)
+  // console.og(123);
+  if(!user.name) {
+    throw new Error("В этих данных нет имени")
+  }
+} catch(err) {
+  console.log('error');
+  console.log(err.name)
+  console.log(err.message)
+  console.log(err.stack)
+} finally {
+  console.log('Finally')
+}
